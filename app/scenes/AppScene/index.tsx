@@ -15,7 +15,6 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
   Image,
   TextInput,
   Slider,
@@ -29,7 +28,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import {observer} from 'mobx-react';
-import {observable} from 'mobx';
+import {observable, action} from 'mobx';
 
 import Counter from '../../components/Counter';
 
@@ -59,6 +58,18 @@ class AppScene extends React.Component {
     goToLaunchScene();
   };
 
+  @action.bound onChangeFirstName() {}
+
+  @action.bound onChangeLastName() {}
+
+  @action.bound onChangeEmail() {}
+
+  @action.bound onChangeMobile() {}
+
+  @action.bound onChangePassword() {}
+
+  @action.bound onChangeConfirmPassword() {}
+
   render() {
     return (
       <LinearGradient
@@ -82,36 +93,42 @@ class AppScene extends React.Component {
                     passwordBool={false}
                     type={'name-phone-pad'}
                     lines={1}
+                    onChange={this.onChangeFirstName}
                   />
                   <InputBar
                     placeholderText={'Last name'}
                     passwordBool={false}
                     type={'name-phone-pad'}
                     lines={1}
+                    onChange={this.onChangeLastName}
                   />
                   <InputBar
                     placeholderText={'email'}
                     passwordBool={false}
                     type={'email-address'}
                     lines={1}
+                    onChange={this.onChangeEmail}
                   />
                   <InputBar
                     placeholderText={'Mobile Number'}
                     passwordBool={false}
                     type={'numeric'}
                     lines={1}
+                    onChange={this.onChangeMobile}
                   />
                   <InputBar
                     placeholderText={'password'}
                     passwordBool={true}
                     type={'default'}
                     lines={1}
+                    onChange={this.onChangePassword}
                   />
                   <InputBar
                     placeholderText={'confirm password'}
                     passwordBool={true}
                     type={'default'}
                     lines={1}
+                    onChange={this.onChangeConfirmPassword}
                   />
                 </View>
 

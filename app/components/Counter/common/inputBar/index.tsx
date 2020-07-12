@@ -7,6 +7,7 @@ interface InputBarPropsType {
   passwordBool: boolean;
   type: string;
   lines: number;
+  onChange: Function;
 }
 
 class InputBar extends Component<InputBarPropsType> {
